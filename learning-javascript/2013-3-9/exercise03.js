@@ -1,8 +1,8 @@
 function upp(s){
-return s.toUpperCase();}
+return s.charAt(0).toUpperCase()+s.slice(1);}
 
+console.log(upp("ciao"));
 
-console.log(upp("ciao ciao"));
 
 function cap(s){
 var t="";
