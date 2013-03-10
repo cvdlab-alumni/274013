@@ -1,7 +1,17 @@
-function f(n){
-var s=[];
-var i=0;
-for (i = 1; i < n+1; i +=1) {s.push(i);}
-return s;}
+var array = [1,2];
 
-console.log(f(7));
+console.log(
+array
+.filter(function (element){
+return element % 2  === 0;})
+.map(function (element){
+return element * 2;
+})
+.filter(function(element){
+
+return element %4===0;})
+.reduce(function (a,b){
+return a+b;
+})
+
+);
