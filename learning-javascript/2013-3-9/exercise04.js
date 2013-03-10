@@ -9,4 +9,6 @@ var data = [
 var key = 'name';
 var values = ['goofy', 'scrooge'];
 
-select(data, key, values)
+select(data, key, values){
+
+}
