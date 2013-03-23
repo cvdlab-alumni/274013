@@ -1,16 +1,8 @@
-function upp(s){
-return s.charAt(0).toUpperCase()+s.slice(1);}
+function triangle(a,b,c){
+this.a=a;
+this.b=b;
+this.c=c;
+}
 
-console.log(upp("ciao"));
-console.log('\x50');
-
-
-function cap(s){
-var t="";
-
-if(s.charAt(0) <'\x41' || s.charAt(0)) >'\x5a'
-|| s.charAt(0)) <'\x41' || s.charAt(0)) >'\x5a') 
-return upp(s.slice(1))
-else return s.charAt(0)+cap(s.slice(1)); }
-
-console.log(cap("\"hello world"));
+function perimeter(t){
+return length(t.a)+length(t.b)+length(t.c);}

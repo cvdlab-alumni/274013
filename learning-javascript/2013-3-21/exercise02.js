@@ -1,16 +1,8 @@
-var array=[];
+function edge(a,b){
+this.a=a;
+this.b=b;
+}
 
-function carica(n){
-var i;
-for(i=0;i<n;i+=1)array[i]=Math.ceil(100/Math.random());}
 
-carica(9);
-
-var res=
-array
-.filter(function (element){
-return (element % 2)-1  === 0;})
-.sort(function(value1, value2) {
- return value2 < value1;})
-;
-console.log(res);
+function length(e){
+return Math.sqrt(Math.pow((e.b.x-e.a.x),2)+Math.pow((e.b.y-e.b.x),2));}
