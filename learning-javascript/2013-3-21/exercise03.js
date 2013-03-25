@@ -4,5 +4,5 @@ this.b=b;
 this.c=c;
 }
 
-function perimeter(t){
+Triangle.prototype.perimeter =function (){
 return length(t.a)+length(t.b)+length(t.c);}
