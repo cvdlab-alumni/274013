@@ -8,7 +8,7 @@ def point2D(x,y):
 	y=y
 
 def arc(alpha,r,R):
-	domain = DOMAIN([[0,alpha],[r,R]])([36,50])
+	domain = INTERVALS([[0,alpha],[r,R]])([36,50])
 	mapping=function(v)
 	a=v[0]
 	r=v[1]
@@ -34,7 +34,13 @@ pq=point2D(160,331)
 q7=point2D(86,392)
 q8=point2D(160,383)
 
-pil =PROD(DISK(r)())
+def Column(r,h):
+	basis = CUBOID([2*r*1.2, 2*r*1.2, h/12.0])
+	trunk = CYLINDER([r, (10./12)*h])(12)
+	capital = basis
+	beam = S(1)(3)(capital)
+	return INSR(TOP)([basis,trunk, capital, beam])
+pil =Column(r,h)
 quad =PROD([ T([0,1])([r,r])(GRID([[r*2],[r*2]])), Q(h) ]);
 
 
@@ -92,12 +98,13 @@ west=T([1])([d.y]) (R([1,2])(PI/2)(STRUCT([ GRID([[-a.x,b.x-a.x-90],[91,-120+91,
 VIEW(STRUCT([east,north,south,west]))
 
 
-depth = 14
-raiser = 150.0/(2*9)
-step2D = SIMPLICIAL_COMPLEX([[0,0],[0,1.4+raiser],[depth,raiser],[depth,1.4+raiser]])([[0,2,1],[1,2,3]])
-step3D = MAP([S1,S3,S2])(EXTRUDE([52])(step2D))
-ramp = STRUCT(NN(16)([step3D,T([0,2])([depth,raiser])]))
 
+depth = 14 # pedata 
+raiser = 150/(2*9) # alzata
+step2D = MKPOL([[[0,0],[0,1.4+raiser],[depth,raiser],[depth,1.4+raiser]],
+    [[1,2,3,4]],None])
+step3D = MAP([S1,S3,S2])(PROD([step2D,Q(52)]))
+ramp = STRUCT(NN(16)([step3D,T([1,3])([depth,raiser])]))
 
 
 stair1 = T([0,1,2])([141,333+r,0])(R([0,1])(2*PI)(ramp))
