@@ -40,10 +40,9 @@ def Column(r,h):
 	capital = basis
 	beam = S(1)(3)(capital)
 	return INSR(TOP)([basis,trunk, capital, beam])
+
 pil =Column(r,h)
 quad =PROD([ T([0,1])([r,r])(GRID([[r*2],[r*2]])), Q(h) ]);
-
-
 
 circ1=T([0,1])([560,266+66.5])(R([0,1])(-PI/2)((arc(PI,0,66.5))))
 circ2=T([0,1])([154+31,178])(R([0,1])(PI)((arc(PI,0,31))))
