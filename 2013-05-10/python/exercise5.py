@@ -2,7 +2,8 @@ import sys
 sys.path.append("/home/giorgio/workspace/larpy")
 from lar import *
 from scipy import *
-#cofano
+###cofano
+
 domain = INTERVALS(1)(36)
 domain2 = PROD([INTERVALS(1)(40), INTERVALS(1)(1)])
 domain3= PROD([INTERVALS(1)(40),domain2])
