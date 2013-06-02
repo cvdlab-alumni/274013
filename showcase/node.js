@@ -60,7 +60,7 @@
  var v220=COLOR([0,0,0])(STRUCT([SIMPLEX_GRID([[-25,0.1],[-24,1.5],[-0.5,0.8]]) ]));
  var comp=COLOR([0,0,0])(STRUCT([SIMPLEX_GRID([[-25,0.1],[-18,1.5],[-0.8,0.4]]) ]));
  var hdmi=COLOR([0,0,0])(STRUCT([SIMPLEX_GRID([[-25,0.1],[-13,1.5],[-0.8,0.2]]) ]));
- corpo=COLOR([47/255, 51/255, 53/255])(STRUCT([base,sopra,sotto,dietro,davanti,dx,sx]));
+ var corpo=COLOR([47/255, 51/255, 53/255])(STRUCT([base,sopra,sotto,dietro,davanti,dx,sx]));
  var model=STRUCT([eject, power,corpo,aria,usb,hdd,eth,v220,comp,led,hdmi]);
  
   return model
