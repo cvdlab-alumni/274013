@@ -53,17 +53,16 @@ var alb;
 var a=5*Math.random();
 for (i = 0; i < x; i +=1) {
   for (j = 0; j < y; j +=1) {
-  DRAW(T([0,1,2])([i*3+18,j*3+2,1.5-piano[i*3+18,j*3+2]])( STRUCT([ EXTRUDE([a])(DISK(0.2)(6)),T([2])([a])(foglie(3)) ]) ));
+  DRAW(T([0,1,2])([i*3+18,j*3+2,1.5-piano[i*3+18,j*3+2]])( STRUCT([ EXTRUDE([a])(DISK(0.2)(6)),T([2])([a])(foglie(a+1)) ]) ));
 }
 }
 }
-albero(4,5)
+albero(7,5)
 
 //case
 function casa(h,e){
 points=[[0,0],[0,3],[1.5,4.5],[3,3],[3,0]]
 punti=[[4,0],[2,6]]
-tetto =STRUCT([COLOR([1,0,0]),EXTRUDE([e+1])(POLYLINE((punti)))])
 return R([1,2])([PI/2])( EXTRUDE([e+1])(POLYLINE(points)));}
 
 var tc=21
@@ -71,9 +70,26 @@ function home(x,y){
 for (i = 0; i < x; i +=1) {
   for (j = 0; j < y; j +=1) {
   DRAW(COLOR([1,0,0])(T([0,1,2])([i*7+18,j*7+tc,0.5])(casa(Math.random()*2,Math.random()*2))));
-//non risolto problema su coordinata z per posizionare ocrrettametne la casa a differenza degli alberi...
 }
 }
 };
 
-home(3,3)
+home(3,2)
+
+
+//case2
+function casa2(h,e){
+points=[[0,0],[0,3],[3,3],[3,0]]
+punti=[[4,0],[2,6]]
+return R([1,2])([PI/2])( EXTRUDE([e+1])(POLYLINE(points)));}
+
+var tc=21
+function home2(x,y){
+for (i = 0; i < x; i +=1) {
+  for (j = 0; j < y; j +=1) {
+  DRAW(COLOR([1,0,0])(T([0,1,2])([i*7+18,j*7+tc+14,0.5])(casa2(Math.random()*2,Math.random()*2))));
+}
+}
+};
+
+home2(3,1)

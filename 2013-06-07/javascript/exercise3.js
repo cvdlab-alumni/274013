@@ -1,3 +1,7 @@
+/*
+alberi
+*/
+
 var dom1D = INTERVALS(1)(4);
 var dom2D = PROD1x1([INTERVALS(1)(4),INTERVALS(1)(4)]);
 
@@ -53,8 +57,8 @@ var a=4*Math.random();
 
 for (i = 0; i < x; i +=1) {
   for (j = 0; j < y; j +=1) {
-  DRAW(T([0,1,2])([i*3+18,j*3+2,piano[i*3+18,j*3+2]])( STRUCT([ EXTRUDE([a])(DISK(0.2)(6)),T([2])([a])(foglie(3)) ]) ));
+  DRAW(T([0,1,2])([i*3+18,j*3+2,piano[i*3+18,j*3+2]+0.5])( STRUCT([ EXTRUDE([a])(DISK(0.2)(6)),T([2])([a])(foglie(a+1)) ]) ));
 }
 }
 }
-albero(4,5)
+albero(7,5)

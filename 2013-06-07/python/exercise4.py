@@ -12,7 +12,5 @@ terr= MAP ( terreno ) ( dom2D )
 
 acqua=COLOR( [0, 130, 80, 0.7])(SIMPLEX_GRID([[-3,10],[-3,15],[1]]));
 
-
-
 model=STRUCT([acqua,terr]);
 VIEW(model);
