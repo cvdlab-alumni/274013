@@ -9,6 +9,7 @@ var piano = new Array();
 
 function terr(alt){
 var z=1.5-Math.random();
+if(alt[1]>25 && alt[0]<12) z=Math.random()*alt[1]/5
 piano[alt[0],alt[1]]=z;
 	return [alt[0],  alt[1], z];
 }
@@ -42,7 +43,7 @@ return COLOR( [0, 130/255, 80/255, 0.7])( STRUCT([a1,a2]));}
 
 function albero(x,y){
 var alb;
-var a=5*Math.random();
+var a=5*Math.random()+2;
 for (i = 0; i < x; i +=1) {
   for (j = 0; j < y; j +=1) {
   DRAW(T([0,1,2])([i*3+18,j*3+2,1.5-piano[i*3+18,j*3+2]])( STRUCT([ EXTRUDE([a])(DISK(0.2)(6)),T([2])([a])(foglie(a+1)) ]) ));

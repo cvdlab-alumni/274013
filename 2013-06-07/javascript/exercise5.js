@@ -13,6 +13,7 @@ var piano = new Array();
 var v=Array()
 function terr(alt){  //codice provenente da modifica della mia funzione dell'arco di circonferenza
 var z=1.5-Math.random();
+if(alt[1]>25 && alt[0]<12)z=Math.random()*alt[1]/5
 piano[alt[0],alt[1]]=z;
 var r=[alt[0],  alt[1], z];
 v.push(r);
@@ -48,7 +49,7 @@ return COLOR( [0, 130/255, 80/255, 0.7])( STRUCT([a1,a2]));}
 
 function albero(x,y){
 var alb;
-var a=4*Math.random();
+var a=4*Math.random()+2;
 
 for (i = 0; i < x; i +=1) {
   for (j = 0; j < y; j +=1) {

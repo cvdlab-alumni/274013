@@ -11,6 +11,7 @@ var piano = new Array();
 
 function terr(alt){
 var z=1.5-Math.random();
+if(alt[1]>25 && alt[0]<12) z=Math.random()*alt[1]/5
 piano[alt[0],alt[1]]=z;
 	return [alt[0],  alt[1], z];
 }
