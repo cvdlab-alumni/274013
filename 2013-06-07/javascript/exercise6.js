@@ -118,11 +118,11 @@ DRAW(COLOR([0,0,0])( STRUCT([ SIMPLEX_GRID([[-18+largh,largh,-4,largh,-4,largh],
 //LAR
 function lar_to_obj(v,fv) {
 var l = v.length;
-	var r = "vertici:\n";
+	var r = "###vertici:\n";
 	for (var i=0; i<l; i++){
 			r+="v   "+v[i][0]+"   "+v[i][1]+"  "+v[i][2]+'\n';
 	}
-r+="\n\ncelle:\n";
+r+="\n\n###celle:\n";
 var l = fv[0].length;
 	for(var i=0; i<l; i++){
 		var m = fv[i].length;
