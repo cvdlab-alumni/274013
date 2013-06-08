@@ -1,4 +1,17 @@
+/*Exercise 6
+LAR vertices
+Homework 3 - nota esercizio 6
+scrivete una funzione lar_to_obj(model) 
+che accetta in ingresso un modello lar `model` 
+(ovvero una coppia (un array) [v, fv]
+dove v è l'array di vertici del modello
+e fv è la matrice compatta delle facce 2d del modello
+e restituisce in uscita il testo (una stringa) 
+che rappresenta il contenuto del file obj
+(non dovete creare file, o altro...)*/
 
+
+//terreno
 var dom1D = INTERVALS(1)(4);
 var dom2D = PROD1x1([INTERVALS(1)(4),INTERVALS(1)(4)]);
 
@@ -6,10 +19,12 @@ var dom2D = PROD1x1([INTERVALS(1)(4),INTERVALS(1)(4)]);
 var dom = PROD1x1([INTERVALS(40)(20),INTERVALS(40)(20)]);
 
 var piano = new Array();
-
-function rilievi(alt){
+var v=Array()
+function rilievi(alt){  //codice provenente da modifica della mia funzione dell'arco di circonferenza
 var z=1.5-Math.random();
 piano[alt[0],alt[1]]=z
+var r=[alt[0],  alt[1], z];
+v.push(r)
 	return [alt[0],  alt[1], z];
 }
 var model =MAP(rilievi)(dom)
@@ -50,10 +65,11 @@ return COLOR( [0, 130/255, 80/255, 0.7])( STRUCT([a1,a2]));}
 
 function albero(x,y){
 var alb;
-var a=5*Math.random();
+var a=4*Math.random();
+
 for (i = 0; i < x; i +=1) {
   for (j = 0; j < y; j +=1) {
-  DRAW(T([0,1,2])([i*3+18,j*3+2,1.5-piano[i*3+18,j*3+2]])( STRUCT([ EXTRUDE([a])(DISK(0.2)(6)),T([2])([a])(foglie(3)) ]) ));
+  DRAW(T([0,1,2])([i*3+18,j*3+2,piano[i*3+18,j*3+2]])( STRUCT([ EXTRUDE([a])(DISK(0.2)(6)),T([2])([a])(foglie(3)) ]) ));
 }
 }
 }
@@ -63,17 +79,25 @@ albero(4,5)
 function casa(h,e){
 points=[[0,0],[0,3],[1.5,4.5],[3,3],[3,0]]
 punti=[[4,0],[2,6]]
-tetto =STRUCT([COLOR([1,0,0]),EXTRUDE([e+1])(POLYLINE((punti)))])
-return R([1,2])([PI/2])( EXTRUDE([e+1])(POLYLINE(points)));}
+tetto =STRUCT([COLOR([1,0,0]),EXTRUDE([h*2])(POLYLINE((punti)))])
+return R([1,2])([PI/2])( EXTRUDE([h*2])(POLYLINE(points)));}
 
 var tc=21
 function home(x,y){
 for (i = 0; i < x; i +=1) {
   for (j = 0; j < y; j +=1) {
-  DRAW(COLOR([1,0,0])(T([0,1,2])([i*7+18,j*7+tc,0.5])(casa(Math.random()*2,Math.random()*2))));
-//non risolto problema su coordinata z per posizionare ocrrettametne la casa a differenza degli alberi...
+  DRAW(COLOR([1,0,0])(T([0,1,2])([i*7+18,j*7+tc,piano[i,j]])(casa(Math.random()*2,Math.random()*3))));
 }
 }
 };
 
 home(3,3)
+//strade
+
+var largh=3
+DRAW(COLOR([0,0,0])( STRUCT([ SIMPLEX_GRID([[-18+largh,largh,-4,largh,-4,largh],[-tc+largh,3*7],[-1,0.3]]),SIMPLEX_GRID([[-18+largh,3*7],[-tc+largh+3,largh,-4,largh,-4,largh],[-1,0.3]])])));
+//LAR
+function lar_to_obj(model) {
+
+return [[],piano]
+}
