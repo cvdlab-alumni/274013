@@ -126,7 +126,7 @@ r+="\n\ncelle:\n";
 		var l = fv[i].length;
 		for(var j=0; j<l;j++){
 if (j==0)s+="f  "
-	if (j==k-1)s+=fv[i][j]+'\n';
+	if (j==l-1)s+=fv[i][j]+'\n';
 		else	s+=fv[i][j]+' '; 			 		
 	}
 return r;
