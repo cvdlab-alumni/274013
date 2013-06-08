@@ -116,7 +116,7 @@ var largh=3
 DRAW(COLOR([0,0,0])( STRUCT([ SIMPLEX_GRID([[-18+largh,largh,-4,largh,-4,largh],[-tc+largh,3*7],[-1,0.3]]),SIMPLEX_GRID([[-18+largh,3*7+3],[-tc+largh+3,largh,-4,largh,-4,largh],[-1,0.3]])])));
 
 //LAR
-function lar_to_obj(model) {
+function lar_to_obj(v,fv) {
 var l = v.length;
 	var r = "vertici:\n";
 	for (var i=0; i<l; i++){
