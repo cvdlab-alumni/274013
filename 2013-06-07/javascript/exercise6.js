@@ -125,10 +125,10 @@ var l = v.length;
 r+="\n\ncelle:\n";
 var l = fv[0].length;
 	for(var i=0; i<l; i++){
-		var l = fv[i].length;
-		for(var j=0; j<l;j++){
+		var m = fv[i].length;
+		for(var j=0; j<m;j++){
 if (j==0)r+="f  "
-	if (j==l-1)r+=fv[i][j]+'\n';
+	if (j==m-1)r+=fv[i][j]+'\n';
 		else	r+=fv[i][j]+' '; 			 		
 	}
 }
