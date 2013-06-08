@@ -123,7 +123,7 @@ var l = v.length;
 			r+="v   "+v[i][0]+"   "+v[i][1]+"  "+v[i][2]+'\n';
 	}
 r+="\n\ncelle:\n";
-		var l = fv[i].length;
+		var l = fv.length;
 		for(var j=0; j<l;j++){
 if (j==0)s+="f  "
 	if (j==l-1)s+=fv[i][j]+'\n';
