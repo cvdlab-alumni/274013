@@ -20,13 +20,6 @@ DRAW(COLOR([188/255, 152/255, 126/255])(model));
 
 
 
-function point2D(x,y){
-this.x=x;
-this.y=y;}
-
-function punto(){
-return new point2D(Math.random(),Math.random());}
-
 //lago
 function max(x,y){
 var m=0;
