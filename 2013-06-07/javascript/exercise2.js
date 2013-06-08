@@ -28,7 +28,6 @@ if (piano[i,j]>m) m=piano[i,j]}}
 return m
 }
 
-var acqua=COLOR( [0, 130/255, 80/255, 0.7])(SIMPLEX_GRID([[-3,10],[-3,15],[-0.5,max(3+10,3+15)-0.8]]));
+var lake=COLOR( [0, 130/255, 80/255, 0.7])(SIMPLEX_GRID([[-3,10],[-3,15],[-0.5,max(3+10,3+15)-0.8]]));
 
-var lake=STRUCT([acqua]);
 DRAW(lake);
