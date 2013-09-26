@@ -1,8 +1,8 @@
 from pyplasm import *
 from numpy import *
 
-GRID = COMP([INSR(PROD),AA(QUOTE)])
-SIMPLEX_GRID=GRID
+
+SIMPLEX_GRID=COMP([INSR(PROD),AA(QUOTE)])
 
 ###piedino con ruotaTORUS([1,2])([20,20])
 wheel = TORUS([0.2,0.7])([20,20]);
