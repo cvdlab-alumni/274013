@@ -1,6 +1,6 @@
 //Giorgio Cerrito 274013 - Final Project 2013
 
-var domain = INTERVALS(1)(22);
+var domain = INTERVALS(1)(20);
 var dom3D = DOMAIN([[0,1],[0,1]])([20,20]);
 
 function arc(f,alpha,r,R){
@@ -24,9 +24,6 @@ var toro = function (R, r) {
   }
 }
 
-function ruotac(array){
-	
-}
 
 //maniglia nera
 var man1=SIMPLEX_GRID([[0.3,-1.4,0.3],[0.2],[0.3]]);
