@@ -1,4 +1,4 @@
-//Giorgio Cerrito 274013
+//Giorgio Cerrito 274013 - Final Project 2013
 
 var domain = INTERVALS(1)(22);
 var dom3D = DOMAIN([[0,1],[0,1]])([20,20]);
@@ -37,7 +37,16 @@ var c2 = BEZIER(S0)([[0,0.15,0.3],[0.3,0.15,0.6],[1.7,0.15,0.6],[2,0.15,0.3]]);
 var c3 = BEZIER(S0)([[0.1,0.2,0.3],[0.3,0.3,0.3],[1.7,0.3,0.3],[2,0.2,0.3]]);
 var maniglia =COLOR([0,0,0])( STRUCT([man1,MAP(BEZIER(S1)([c0,c1,c2,c3]))(dom2D)]));
 
-
+//maniglia grigia parametrica
+function manig(l){
+var pern=R([0,2])(PI/2)( EXTRUDE([l])(DISK(0.05)()) )
+var domain = PROD1x1([INTERVALS(1)(20),INTERVALS(1)(6)]);
+var ncpVector = [0,-0.5,0.5];
+var funProfile = BEZIER(S0)([[0.13, 0,0], [-0.05, -0.08,0], [-0.05, 0.10,0], [0.13, 0,0]]);
+var funProfile2 = BEZIER(S0)([[0.13+l-0.13, 0,0], [-0.05+l-0.13, -0.08,0], [-0.05+l-0.13, 0.10,0], [0.13+l-0.13, 0,0]]);
+var out =STRUCT([pern, MAP(CYLINDRICAL_SURFACE(funProfile)(ncpVector))(domain),MAP(CYLINDRICAL_SURFACE(funProfile2)(ncpVector))(domain) ]);
+return out;
+}
 
 //piedino con ruota
 var wheel = MAP(toro(0.4,0.3))(DOMAIN([[0,2*PI],[0,2*PI]])([20,20]));
@@ -137,18 +146,19 @@ var sop=COLOR([0/255,0/255,0/255])(T([0,1,2])([2,1,7.3])(STRUCT([colon1,rot1])))
 DRAW(sop)
 
 var maniglia2=R([0,1])(PI/2)(R([1,2])(PI/2)(maniglia))
+
 //mobiletto
 var maniglie=STRUCT([T([0,2])([7.5,6.7])(R([1,2])(PI/2)(maniglia)),T([0,1,2])([6,5.5,5.7])(maniglia2),T([0,1,2])([6,5.5,1.8])(maniglia2),T([0,1,2])([6,5.5,6.7])(maniglia2),T([0,1,2])([6,5.5,3.5])(maniglia2),T([0,1,2])([6,9.5,6.7])(maniglia2)])
 var strut=COLOR([255/255,255/255,255/255])(STRUCT([SIMPLEX_GRID([[6],[14],[0.3,-7,0.3]]),SIMPLEX_GRID([[6],[0.3,-4,0.3,-4.4,0.3,-4.4,0.3],[-0.3,7]]),SIMPLEX_GRID([[0.3],[14],[7.6]])]))
 var sp1=COLOR([0/255,168/255,107/255])(STRUCT([SIMPLEX_GRID([[-6,4],[0.2],[-0.3,7]]) , SIMPLEX_GRID([[-6,0.2],[-4.4,-4.7,4.6],[-0.3,7]]) , SIMPLEX_GRID([[-6,0.2],[-4.4,4.6],[-0.3,1.9,-0.1,1.9,-0.1,1.9,-0.1,1]])]))
 var ruote=STRUCT([T([0,1])([1,1])(ruota),T([0,1])([1,12])(ruota),T([0,1])([5,1])(ruota),T([0,1])([5,12])(ruota)])
-var mobiletto=STRUCT([strut,sp1,ruote,maniglie])
+var mobiletto=STRUCT([strut,sp1,ruote,maniglie,T([0,1,2])([1,14.5,6])(manig(4))])
 DRAW(mobiletto);
 
 //libreria
 function libreria(){
 var ruote=STRUCT([T([0,1])([1,1])(ruota),T([0,1])([1,15])(ruota),T([0,1])([4,1])(ruota),T([0,1])([4,15])(ruota)])
-var lib=T([1])([30])(STRUCT([ ruote,COLOR([0/255,168/255,107/255])(STRUCT([SIMPLEX_GRID([[5],[16.2],[0.3,-5,0.3,-5,0.3,-5,0.3]]) , SIMPLEX_GRID([[5],[0.3,-5,0.3,-5,0.3,-5,0.3],[16.2]]) ]))]));
+var lib=T([1])([30])(STRUCT([T([0,1,2])([1,16.7,6])(manig(3)), ruote,COLOR([0/255,168/255,107/255])(STRUCT([SIMPLEX_GRID([[5],[16.2],[0.3,-5,0.3,-5,0.3,-5,0.3]]) , SIMPLEX_GRID([[5],[0.3,-5,0.3,-5,0.3,-5,0.3],[16.2]]) ]))]));
 return lib;
 }
 DRAW(libreria());
@@ -158,7 +168,6 @@ var piede=COLOR([0/255,0/255,0/255])(EXTRUDE([8.5])(DISK(0.4)()))
 var piedi=STRUCT([T([0,1])([16,-18])(STRUCT([piede,ruota])),T([0,1])([14,-21])(STRUCT([piede,ruota]))])
 
 //Scrivania
-
 function sopra(){
 var dom2D = PROD1x1([INTERVALS(1)(16),INTERVALS(1)(16)]);
 var controlpoints = [[2.8, 39.8,0.3], [4.9, 38.5,0.3], [4.9, 38.5,0.3], [6.6, 37.6,0.3],[5.9, 37.9,0.3], [9.5, 35.7,0.3], [8.7, 35.4,0.3], [10.7, 37.9,0.3],[17.2, 44.2,0.3], [17.5, 45,0.3], [26.8, 47.4,0.3], [28.5, 47.5,0.3], [28.2, 47.1,0.3], [28.2, 50.1,0.3], [28.2, 52.7,0.3], [28.2, 50.8,0.3], [28.2, 54.6,0.3]];
